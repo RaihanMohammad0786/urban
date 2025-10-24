@@ -15,7 +15,7 @@ export default async function LocaleLayout({children}: {children: React.ReactNod
   return (
     <html lang='tr' dir='ltr'>
       <body>
-        <NextIntlClientProvider locale='tr' messages={...messages}>
+        <NextIntlClientProvider locale='ar' messages={messages}>
           <Nav/>
           {children}
           <Footer/>
