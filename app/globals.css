@@ -1,0 +1,9 @@
+@tailwind base; @tailwind components; @tailwind utilities;
+:root{color-scheme:dark} body{background:#0b1020;color:#e2e8f0}
+.container{max-width:72rem;margin:0 auto;padding:0 1rem}
+.card{background:#111936cc;border:1px solid #ffffff1a;border-radius:1rem;padding:1.25rem}
+.btn{display:inline-flex;gap:.5rem;font-weight:700;padding:.5rem 1rem;border-radius:.75rem;border:1px solid #ffffff26}
+.btn-primary{background:linear-gradient(135deg,#0ea5e9,#22c55e);color:#001019;border:0}
+.badge{font-size:.875rem;padding:.125rem .5rem;border-radius:999px;border:1px solid #ffffff33;color:#cbd5e1}
+.navlink{padding:.5rem .75rem;border-radius:.75rem;color:#cbd5e1}
+.navlink:hover{background:#ffffff1a;color:#fff}

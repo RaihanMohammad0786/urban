@@ -1,0 +1,10 @@
+'use client'
+import {useMemo,useState} from 'react'
+import data from '@/data/catalog.json'
+type Item={id:string;cat:string;title:string;throughput?:string;highlights:string[];famous?:string[];specs?:string}
+type Cat={id:string;name:string}
+export default function Catalog(){
+  const [q,setQ]=useState(''); const [cat,setCat]=useState<string>('all')
+  const categories=(data as any).categories as Cat[]; const items=(data as any).items as Item[]
+  const filtered=useMemo(()=>{ const term=q.trim().toLowerCase(); return items.filter(it=>(cat==='all'||it.cat===cat)&& (term===''||it.title.toLowerCase().includes(term)||(it.specs||'').toLowerCase().includes(term)||(it.highlights||[]).join(' ').toLowerCase().includes(term)))},[q,cat])
+  return (<div className='space-y-4'><div className='grid md:grid-cols-3 gap-3'><input placeholder='Search machinery, e.g., maker, GLT, packer…' className='rounded-xl bg-black/20 border border-white/15 px-3 py-2' value={q} onChange={e=>setQ(e.target.value)}/><select className='rounded-xl bg-black/20 border border-white/15 px-3 py-2' value={cat} onChange={e=>setCat(e.target.value)}><option value='all'>All Categories</option>{categories.map(c=><option key={c.id} value={c.id}>{c.name}</option>)}</select><div className='text-right text-sm text-[#cbd5e1] self-center'>{filtered.length} items</div></div><div className='grid md:grid-cols-2 gap-4'>{filtered.map(it=>(<article key={it.id} className='card'><div className='flex items-center justify-between'><h3 className='font-semibold text-lg'>{it.title}</h3><span className='badge'>{(categories.find(c=>c.id===it.cat)||{} as any).name}</span></div>{it.throughput&&<p className='text-sm text-[#cbd5e1] mt-1'>Capacity: {it.throughput}</p>}<ul className='list-disc pl-5 my-2 text-[#cbd5e1]'>{it.highlights.map((h,i)=><li key={i}>{h}</li>)}</ul>{it.famous&&<p className='text-sm'><strong>Also known as:</strong> {it.famous.join(' / ')}</p>}{it.specs&&<p className='text-sm text-[#cbd5e1] mt-1'>{it.specs}</p>}</article>))}</div></div>)}
