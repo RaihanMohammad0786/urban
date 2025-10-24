@@ -1,4 +1,0 @@
-import {useTranslations} from 'next-intl'
-import Image from 'next/image'
-import Link from 'next/link'
-export default function Hero(){ const t = useTranslations(); return (<section className='border-b border-white/10'><div className='container grid md:grid-cols-2 gap-6 py-10 items-center'><div><h1 className='text-4xl md:text-5xl font-extrabold leading-tight'>{t('hero.title')}</h1><p className='text-[#cbd5e1] mt-3'>{t('hero.sub')}</p><div className='mt-5 flex gap-3'><Link href='./products' className='btn'>{t('cta.products')}</Link><Link href='./contact' className='btn btn-primary'>{t('cta.talk')}</Link></div></div><div className='rounded-2xl overflow-hidden border border-white/10'><Image src='/hero.svg' alt='Abstract machinery gears' width={1200} height={400} priority/></div></div></section>) }

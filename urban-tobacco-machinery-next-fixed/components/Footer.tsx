@@ -1,2 +1,0 @@
-import {useTranslations} from 'next-intl'
-export default function Footer(){ const t = useTranslations(); return (<footer className='border-t border-white/10 mt-10'><div className='container py-6 grid md:grid-cols-2 gap-4 text-[#cbd5e1]'><p>{t('footer.note')}</p><div className='grid grid-cols-2 gap-3'><div><strong>Phone/WhatsApp</strong><br/><a href='https://wa.me/27786552242'>+27 786 552 242</a></div><div><strong>Email</strong><br/><a href='mailto:info@urbantobaccomachinery.com'>info@urbantobaccomachinery.com</a></div></div></div></footer>) }

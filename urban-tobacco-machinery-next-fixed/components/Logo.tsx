@@ -1,1 +1,0 @@
-export default function Logo(){return (<div className='flex items-center gap-2 font-extrabold tracking-wide'><span className='inline-block w-3 h-3 rounded-full bg-gradient-to-br from-brand to-brand2' aria-hidden></span><span>Urban Tobacco Machinery</span></div>);}
